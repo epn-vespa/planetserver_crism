@@ -1,5 +1,5 @@
 <resource schema="planetserver_crism">
-<!--        <meta name="title">CRISM data from Earth Server 2</meta>-->
+        <meta name="subject">CRISM</meta>
         <meta name="title">PlanetServer-CRISM</meta>
         <meta name="description">
 This service provides metadata information and hyperlinks to a subset of the CRISM/MRO[*]
