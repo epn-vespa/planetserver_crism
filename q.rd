@@ -1,34 +1,28 @@
-<resource schema="crism">
+<resource schema="planetserver_crism">
 <!--        <meta name="title">CRISM data from Earth Server 2</meta>-->
-        <meta name="title">CRISM</meta>
+        <meta name="title">PlanetServer-CRISM</meta>
         <meta name="description">
-List of coverages accessible through PlanetServer2 
-(http://access.planetserver.eu/) obtained by Compact Reconnaissance 
-Imaging Spectrometer for Mars (CRISM) on Mars Reconnaissance Orbiter (MRO).
-CRISM at full spatial and spectral resolution maps at 15–19 m/pixel, 
-362–3920 nm at 6.55 nm/channel. CRISM contains two sensor arrays: S for 
-VNIR (107 channels from 364.6 to 1056.0 nm) and L for IR (438 channels 
-from 1001.3 to 3936.8 nm).
-Granule_gid corresponds to the observation mode:
-FRT - Full Resolution Targeted, HRL - Half Resolution Targeted
-HRS - Half Resolution Short, EPF - Emission Phase Function,
-FRS - Full Resolution Short, MSW - Multispectral Window,
-MSV - Multispectral VNIR, MSP - Multispectral Survey,
-HSP - Hyperspectral Mapping, HSV - Hyperspectral VNIR,
-ATO - Along-Track Oversampled, ATU - Along-Track Undersampled,
-TOD - Tracking Optical Depth, FFC - Flat Field Calibration.
-Murchie, Scott, et al. "Compact reconnaissance imaging spectrometer for 
-Mars (CRISM) on Mars reconnaissance orbiter (MRO)." Journal of Geophysical 
-Research: Planets 112.E5 (2007). DOI: 10.1029/2006JE002682
+This service provides metadata information and hyperlinks to a subset of the CRISM/MRO[*]
+spectral cubes dataset provided by the PlanetServer/EarthServer-2 project as OGC/WCS
+endpoints.
+The data here hyperlinked was atmospherically calibrated and geo-referenced to suit the
+interactive interface provided by the PlanetServer at http://access.planetserver.eu/ as
+described in Marco Figueira, R. et al, 2018.
+
+The original dataset is described in Murchie, S. et al, 2007 and is distributed in native format
+on the PDS Geosciences node, https://pds-geosciences.wustl.edu/missions/mro/crism.htm.
+
+- Marco Figueira, R., 2018, https://doi.org/10.1016/j.pss.2017.09.007
+- Murchie, S., 2007, https://doi.org/10.1029/2006JE002682
+
+[*]: Compact Reconnaissance Imaging Spectrometer for Mars (CRISM) on Mars Reconnaissance Orbiter (MRO), http://crism.jhuapl.edu/
         </meta>
-        <meta name="creationDate">2016-03-30T00:00:00</meta>
-        <meta name="subject">___</meta>
-        <meta name="subject">__</meta>
+        <meta name="creationDate">2019-07-01T06:00:00</meta>
 
         <meta name="creator.name">Mikhail Minin</meta>
-        <meta name="contact.name">Mikhail Minin</meta>
-        <meta name="contact.email">m.minin@jacobs-university.de</meta>
-        <meta name="instrument">CRISM</meta>
+        <meta name="contact.name">Carlos Brandt</meta>
+        <meta name="contact.email">c.brandt@jacobs-university.de</meta>
+        <meta name="instrument">CRISM/MRO</meta>
 
         <meta name="subjects">Mars, spectroscopy, infrared, remote sensing</meta>
 
@@ -44,15 +38,15 @@ Research: Planets 112.E5 (2007). DOI: 10.1029/2006JE002682
                 <mixin spatial_frame_type="body">//epntap2#table-2_0</mixin>
 <!--                <mixin>//obscore#publish</mixin>-->
                 <meta name="description">
-                CRISM data from Planet Server 2: http://access.planetserver.eu/
+                PlanetServer2/CRISM data: http://access.planetserver.eu/
                 </meta>
                 <stc>
 		     Polygon UNKNOWNFrame [s_region]
                 </stc>
                 <index columns="s_region" method='GIST'/>
 
-		<column name="access_url" type="text" ucd="meta.ref.url;meta.file" verbLevel="1" description="URL of the data file." /> 
-		<column name="access_format" type="text" description="File format type" ucd="meta.code.mime" verbLevel="1"/> 
+		<column name="access_url" type="text" ucd="meta.ref.url;meta.file" verbLevel="1" description="URL of the data file." />
+		<column name="access_format" type="text" description="File format type" ucd="meta.code.mime" verbLevel="1"/>
 		<column name="access_estsize" type="integer" unit="kbyte" description="Estimate file size in kbyte" ucd="phys.size;meta.file" verbLevel="1"/>
 
                 <column name="thumbnail_url" type="text" ucd="meta.ref.url;meta.file" description="URL of an image preview" />
@@ -65,7 +59,7 @@ Research: Planets 112.E5 (2007). DOI: 10.1029/2006JE002682
 
 <!--non-standard-->
                 <column name="sensor_id" type="text" ucd="meta.note;meta.main" tablehead="sensor id" verbLevel="1" description="non standard" />
-                <column name="image_width" type="integer" description="image width" ucd="meta.note;meta.main" tablehead="image width" verbLevel="1" unit="pix" /> 
+                <column name="image_width" type="integer" description="image width" ucd="meta.note;meta.main" tablehead="image width" verbLevel="1" unit="pix" />
                 <column name="image_height" type="integer" ucd="meta.note;meta.main" tablehead="image height" verbLevel="1" description="image height" unit="pix" />
 
                 <column name="external_link" type="text" ucd="meta.ref.url" tablehead="external_link" verbLevel="1" description="Link to a web application to extract data for CASSIS" />
@@ -81,7 +75,7 @@ Research: Planets 112.E5 (2007). DOI: 10.1029/2006JE002682
         </table>
 
         <data id="import">
-                <sources>data/crism_dev08022018.csv</sources>
+                <sources>data/data.csv</sources>
 		<csvGrammar>
 			<rowfilter procDef="//products#define">
 				<bind name="table">"\schema.epn_core"</bind>
@@ -244,4 +238,3 @@ Research: Planets 112.E5 (2007). DOI: 10.1029/2006JE002682
 		</make>
         </data>
 </resource>
-
