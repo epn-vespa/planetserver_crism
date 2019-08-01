@@ -1,4 +1,4 @@
-# PlanetServer-CRISM
+# PlanetServer CRISM-derived subset
 
 DaCHS resource descriptor defining the `planetserver_crism` EPNTAP service.
 
